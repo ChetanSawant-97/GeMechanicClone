@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Nandinagari&family=Noto+Serif+Tamil:wght@500&family=Nunito:wght@200;400&display=swap');
+
+
+
+.more-link div{
+	background-color : black;
+}
+
+.nav-dropdown-item:hover{
+	color:white !important;
+	background:black !important;
+	font-size:1.2rem;
+	padding-top:2px;
+}
+
+.nav-login-link{
+	padding-left: 50px !important;
+}
+
+.nav-links{
+	font-size:1.3rem !important;
+	font-family: 'Nunito', sans-serif !important;
+}
+
+
+/* Media Query for Tablets (landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+	.nav-login-link {
+		padding-left: 0px !important; /* Adjust the thickness for tablets if needed */
+	}
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 767px) {
+	.nav-login-link {
+	  padding-left: 0px !important; /* Adjust the thickness for mobile devices if needed */
+	}
+  }

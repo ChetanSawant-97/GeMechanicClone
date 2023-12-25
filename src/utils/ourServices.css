@@ -1,0 +1,60 @@
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Six columns with equal width */
+    grid-gap: 40px 40px;
+}
+
+
+.carousal-button{
+    display:none;
+}
+
+
+.cust-service-card{
+    padding:10px 0px 0px 0px; 
+    min-height:145px;
+}
+
+
+@media (min-width: 1024px)  {
+    .cust-card:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	
+    
+    
+    .cust-card{
+        width:13.2rem;
+    }
+
+    .carousal-button{
+        display:flex;
+        color:#B9B4C7;
+        font-size:2.5rem;
+        z-index : 2;
+        top:150px;
+    }
+    
+}
+  
+@media (max-width: 760px) {
+    .cust-card{
+        width:150px;
+        min-height:197px;
+    }
+
+    .carousal-button{
+        display:flex;
+        color:#B9B4C7;
+        font-size:2rem;
+        z-index : 2;
+        top:150px;
+    }
+    
+}

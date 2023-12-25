@@ -1,0 +1,56 @@
+.home-components{
+    box-sizing:border-box;
+    padding:0px 50px;
+}
+
+.home-component-title{
+    padding: 20px 0px;
+    margin: 20px 0px 0px 0px;
+    font-size : 3rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    box-sizing : border-box;
+    position: relative;
+}
+
+.home-component-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0; /* Adjusted to start from the left edge of the text */
+    width: 15%; /* Adjust the width to control the length of the border */
+    height: 3px;
+    background-color: #B80000;
+}
+
+.guarantee-comp{
+    font-weight:bold;
+    text-align:center;
+    padding:10px 0px;
+    font-size:1.5rem;
+    font-family:'Nunito', sans-serif;
+}
+
+
+  
+
+/* Media Query for Tablets (landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+	.home-component-title{
+        font-size:3rem;
+    }
+    .home-components{
+        box-sizing:border-box;
+        padding:0px 50px;
+    }
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 767px) {
+	.home-component-title{
+        font-size:2.5rem;
+    }
+    .home-components{
+        box-sizing:border-box;
+        padding:0px 35px;
+    }
+  }

@@ -1,0 +1,32 @@
+.enquiry-form{
+    position:absolute;
+    top: 10vh;
+    left : 40vw;
+    filter: brightness(1);
+}
+
+
+.check-price-but{
+    background: #B80000;
+    color: white;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .enquiury-form-parent{
+       
+    }
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 576px) {
+    .enquiury-form-parent {
+        
+    }
+}
+
+
