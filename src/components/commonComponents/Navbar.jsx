@@ -1,15 +1,16 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { FaCarAlt } from "react-icons/fa";
+import { IoCarSportOutline } from "react-icons/io5";
+
 import "../../utils/navbar.css"
 
 const MyNavbar = () => {
   
   return (
-    <Navbar style={{backgroundColor:"#000000", color:"white", padding:"15px 10px", boxSizing:"borderBox"}} expand="lg" fixed="top">
+    <Navbar style={{backgroundColor:"#000000", color:"white", padding:"10px 10px", boxSizing:"borderBox"}} expand="lg" fixed="top">
       
       <Navbar.Brand href="#home">
-        <FaCarAlt style={{ fontSize: '2.5rem' }}  />
+        <IoCarSportOutline style={{ fontSize: '3rem' }}  />
         <span style={{ fontSize: '1.5rem', paddingLeft:"10px"}}>GoMechanic</span> 
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ background: 'white' }}>

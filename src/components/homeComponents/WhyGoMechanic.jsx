@@ -2,8 +2,8 @@ import React from 'react'
 
 const WhyGoMechanic = () => {
   return (
-    <div>
-      <div className="home-components">
+    <div className='mb-4'>
+      <div className="home-components ">
         <h1 className='home-component-title'>Original Spare Parts</h1>
         <p className='home-component-sub-title'>Extended Warranty with GoMechanic</p>
       </div>

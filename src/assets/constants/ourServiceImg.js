@@ -56,6 +56,12 @@ import facebook from '../images/socialsLogos/facebook.png'
 import google from '../images/socialsLogos/google-plus.png'
 import twitter from '../images/socialsLogos/twitter.png'
 
+
+
+//Downloads Links
+import playstore from '../images/downloads/playstore.png'
+import appstore from '../images/downloads/appstore.png'
+
 export const serviceImages = {acAndServiceRepair,
     batteries, carInspection, carSpaAndCleaning, clutchAndBody, dentingAndPainting, detailingService, insuranceClaims,
     periodicService, suspensionAndFitments, tyresAndWheelCare, windshieldAndLight
@@ -81,4 +87,8 @@ export const featureImgs = {
 
 export const socialsLogo = {
     facebook, google, twitter
+}
+
+export const downloadsImg = {
+    playstore, appstore
 }
