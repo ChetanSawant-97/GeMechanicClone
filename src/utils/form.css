@@ -1,0 +1,24 @@
+.field-focus:focus{
+    border-color: #9400FF !important;
+}
+.reg-focus:focus{
+    border-color: #9400FF !important;
+}
+
+.field-focus::placeholder {
+    color: #B6BBC4 !important;
+}
+
+.reg-focus::placeholder{
+    color: #A9A9A9 !important;
+}
+
+
+.custom-buttun:hover{
+    background-color:white !important;
+}
+
+.custom-buttun:active{
+    border : 3px solid #9400FF !important;
+}
+

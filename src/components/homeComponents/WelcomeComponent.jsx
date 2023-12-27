@@ -14,12 +14,7 @@ const WelcomeComponent = () => {
           backgroundSize: "cover",
           filter: "brightness(0.5)",
         }}
-      ></div>
-
-      {/* EnquiryForm container */}
-      <div className='enquiry-form-parent' style={{ position: "absolute", zIndex: 1, top:"5vh", right:"43vw", width:"30%" }}>
-        <EnquiryForm />
-      </div>
+      ></div>      
     </div>
   )
 }
