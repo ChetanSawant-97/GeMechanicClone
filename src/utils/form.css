@@ -22,3 +22,68 @@
     border : 3px solid #9400FF !important;
 }
 
+.login-form{
+    width: 25vw;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px 25px;
+    height: 40vh;
+    border-radius: 20px;
+    position: relative;
+}
+
+.reg-form{
+    width: 40vw;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    height: 55vh;
+    border-radius: 20px;
+    position: relative;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.login-form{
+        width: 55vw;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 15px 25px;
+        height: 34vh;
+        border-radius: 20px;
+        position: relative;
+    }
+    
+    .reg-form{
+        width: 75vw;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 15px 30px;
+        height: 44vh;
+        border-radius: 20px;
+        position: relative;
+    }
+    
+}
+  
+@media (max-width: 760px) {
+    .login-form{
+        width: 88vw;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 15px 25px;
+        height: 40vh;
+        border-radius: 20px;
+        position: relative;
+    }
+    
+    .reg-form{
+        width: 90vw;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 15px 15px;
+        height: 60vh;
+        border-radius: 20px;
+        position: relative;
+    }
+}

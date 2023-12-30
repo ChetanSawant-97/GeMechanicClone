@@ -13,32 +13,30 @@ const MyNavbar = () => {
 
   const handleLogInClick = (status) =>{
     setShowLogin(status===true?"block":"none");
-    setShowEnquiry(status===true?"none":"block")
     setShowReg("none")
   }
   const handleRegClick = (status) =>{
     setShowReg(status===true?"block":"none");
-    setShowEnquiry(status===true?"none":"block")
     setShowLogin("none")
   }
   
   return (
     <>
-      <div className="popup-container" style={{display:{showLogin}}} >
-        <div style={{ display: showLogin }}>
-          <div className="overlay"></div>
-          <div className="navbar-login">
-            <LogIn handleLogInClick = {handleLogInClick} />
-          </div>
-        </div>
-        <div style={{display:showReg}}>
-          <div className="overlay"></div>
-          <div className="navbar-reg">
-            <Registration handleRegClick ={handleRegClick} />
-          </div>
-        </div>
-      </div>
       <Navbar style={{backgroundColor:"#000000", color:"white", padding:"10px 10px", boxSizing:"borderBox"}} expand="lg" fixed="top">
+        <div style={{display:{showLogin}}} >
+          <div style={{ display: showLogin }}>
+            <div className="overlay"></div>
+            <div className="navbar-login">
+              <LogIn handleLogInClick = {handleLogInClick} />
+            </div>
+          </div>
+          <div style={{display:showReg}}>
+            <div className="overlay"></div>
+            <div className="navbar-reg">
+              <Registration handleRegClick ={handleRegClick} />
+            </div>
+          </div>
+        </div>
         <Navbar.Brand href="/">
           <IoCarSportOutline style={{ fontSize: '3rem' }}  />
           <span style={{ fontSize: '1.5rem', paddingLeft:"10px"}}>GoMechanic</span> 

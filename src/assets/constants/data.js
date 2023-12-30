@@ -250,3 +250,39 @@ export const services = [
       det : "Yes, we do. At GoMechanic we offer Teflon and Ceramic car coating services. On top of that, you can also opt for our PPF or Paint Protection Film services to protect the paint on your car. We use genuine Meguiar, 3M, Turtle, and Wurth products for your vehicle."
     },
   ]
+
+
+  export const moreFaq = [
+    {
+      que : "What is GoMechanic?",
+      ans : "GoMechanic is a network of technology-enabled car service centres, offering a seamless service experience at the convenience of a tap. With our highly skilled technicians, manufacturer recommended procedures and the promise of genuine spare parts, we are your best bet."
+    },
+    {
+      que : "Why should I choose GoMechanic?",
+      ans : "GoMechanic offers the best car services and solutions at fair and flexible prices. You end up saving up to 40% compared to what is charged at Authorised Service Centres and Multi-brand workshops"
+    },
+    {
+      que : "How can you offer upto 40% savings on services?",
+      ans : "Our distinctive business model enables us to provide affordable car services. We achieve savings on labour costs, centralized bulk procurement of spare parts, no real-estate overheads, and adept operational excellence, which are passed on straight to You-the Customer"
+    },
+    {
+      que : "How is GoMechanic different from other service platforms out there?",
+      ans : "Unlike other platforms, we do not work on a lead generation model. Uncompromised customer gratification is our idea of fulfilment, that is why we own the complete experience right from procurement of spare parts to quality control at our partner car service centres. Our Customer Representative will be on ground duty promptly reporting every development directly to you. GoMechanic is your personal car service expert and partner rolled into one."
+    },
+    {
+      que : "Where can I book a car service with GoMechanic?",
+      ans : "You can book a GoMechanic car service directly from our website or by downloading the exclusive Android App.Want a more human experience? call or WhatsApp on 8398 970 970.GoMechanic car services are also available on Paytm Mall"
+    },
+    {
+      que : "How to book a car service with GoMechanic?",
+      ans : "We have made booking a car service as easy as 1-2-3. Just select you Car’s make, model and fuel type, select the type of car service you require, Choose your preferred time slot And Enjoy! We offer free pick-up and drop-in, so you don’t miss out the cherished moments with your loved ones."
+    },
+    {
+      que : "What if I am not available to drop my car?",
+      ans : "Worry not! We’ll take care of everything. We offer free pick-up and drop-in."
+    },
+    {
+      que : "Do I have to pay before the service?",
+      ans : "Not at all.From the booking to delivery, our priority at GoMechanic keeps You and Your Car Service first.We will send you the bill once your car is serviced and inspected by our professionals.We offer flexible payment options for your ease. You can still prepay if you choose to."
+    },
+  ]

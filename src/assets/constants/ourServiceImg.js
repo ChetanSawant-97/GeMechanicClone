@@ -62,6 +62,17 @@ import twitter from '../images/socialsLogos/twitter.png'
 import playstore from '../images/downloads/playstore.png'
 import appstore from '../images/downloads/appstore.png'
 
+
+//More Images
+
+import faqImg from '../images/moreImages/faq.jpg'
+import officeImg from '../images/moreImages/office1.svg'
+import emailImg from '../images/moreImages/email.svg'
+import callImg from '../images/moreImages/call.svg'
+import mechanicImg from '../images/moreImages/mechanicImg.png'
+
+
+
 export const serviceImages = {acAndServiceRepair,
     batteries, carInspection, carSpaAndCleaning, clutchAndBody, dentingAndPainting, detailingService, insuranceClaims,
     periodicService, suspensionAndFitments, tyresAndWheelCare, windshieldAndLight
@@ -91,4 +102,8 @@ export const socialsLogo = {
 
 export const downloadsImg = {
     playstore, appstore
+}
+
+export const moreImgs = {
+    faqImg, officeImg, callImg, emailImg, mechanicImg
 }

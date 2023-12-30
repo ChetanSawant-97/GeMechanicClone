@@ -7,7 +7,6 @@ import HowMechComponent from './HowMechComponent'
 import Testimonials from './testimonials/Testimonials'
 import CommonQuestion from './commonQuestion/CommonQuestion'
 import WhyGoMechanic from './WhyGoMechanic'
-import Footer from './Footer'
 
 
 const Home = () => {
@@ -21,7 +20,6 @@ const Home = () => {
       <Testimonials />
       <CommonQuestion />
       <WhyGoMechanic />
-      <Footer />
     </div>
   )
 }

@@ -7,7 +7,7 @@ import '../../utils/form.css'
 const LogIn = ({handleLogInClick}) => {
   return (
     
-    <div className="container" style={{width: "25vw", color: "white", backgroundColor: "rgba(255, 255, 255, 0.2)", padding: "15px 25px", height: "40vh", borderRadius: "20px", position: "relative"}}>
+    <div className="login-form" >
         <IoCloseCircleSharp className='pointerCursor' style={{position:"absolute", right:"5%", top:"5%", fontSize:"2em"}} onClick={() => handleLogInClick(false)} />
         <h2 className="py-2 text-center">LogIn</h2>
         

@@ -1,0 +1,26 @@
+
+
+//Terms Css
+.terms-div p{
+    font-size: 14px;
+}
+
+
+.accordion-header button{
+    font-weight:600 !important;
+    font-size : 0.6em;
+}
+
+.contact-card-det> :nth-child(1){
+    color: #607274;
+    width:100%;
+    font-weight : 500;
+    font-size:1.4em;
+}
+
+.contact-card-det> :nth-child(2){
+    color: #B31312;
+    width:100%;
+    font-size:1.1em;
+    font-weight : 500;
+}

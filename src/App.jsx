@@ -10,12 +10,14 @@ import ContactUs from './components/companyComponents/ContactUs';
 import Privacy from './components/companyComponents/Privacy';
 import Reviews from './components/companyComponents/Reviews';
 import Terms from './components/companyComponents/Terms';
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import Footer from './components/homeComponents/Footer'
+import { Provider } from 'react-redux'; // Ensure this import statement is present
+import store from './store';
+ 
+function App() {  
   return (
     <>
+      <Provider store={store}>
       <BrowserRouter>
         <AppNavbar />
         <Routes>
@@ -29,7 +31,9 @@ function App() {
           <Route path='/' exact Component={Home} />
           <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
-      </BrowserRouter>      
+        <Footer />
+      </BrowserRouter> 
+      </Provider>     
     </>
   )
 }
