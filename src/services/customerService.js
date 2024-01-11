@@ -1,13 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 
-export const registerUserApi = createApi({
+const authToken = sessionStorage.getItem('accessToken');
+
+
+export const authApi = createApi({
     reducerPath : 'registerUserApi',
-    baseQuery : fetchBaseQuery({baseUrl: 'http://localhost:8080/api/v1/auth/'}),
+    baseQuery : fetchBaseQuery({
+        baseUrl: 'http://localhost:8080/api/v1/auth/',
+    }),
     endpoints : (builder) =>({
-        authenticateUser : builder.query({
-            query : (userName) => '/authenticate/${userName}',
-        }),
         registerUser : builder.mutation({
             query : (customerObj) =>({
                 url:'register',
@@ -15,7 +17,43 @@ export const registerUserApi = createApi({
                 body : customerObj,
             }),
         }),
+        
     }),
 });
 
-export const { useAuthenticateUserQuery, useRegisterUserMutation } = registerUserApi;
+
+export const loginApi = createApi({
+    reducerPath : 'loginApi',
+    baseQuery : fetchBaseQuery({baseUrl: 'http://localhost:8080/api/v1/auth/'}),
+    endpoints : (builder) =>({
+        loginUser : builder.mutation({
+            query : (credentials) =>({
+                url:'login',
+                method:"POST",
+                body : credentials,
+            }),
+        })
+    }),
+});
+
+
+export const getUserDetailsApi = createApi({
+    reducerPath: 'userDetApi',
+    baseQuery: fetchBaseQuery({ 
+        baseUrl: 'http://localhost:8080/api/v1/user/',
+        headers: {
+            Authorization: ('Bearer ' + authToken), 
+        },
+    }),
+    endpoints: (builder) => ({
+        getUser: builder.query({
+        query: (username) => `profile?username=${username}`,
+        }),
+    }),
+});
+
+
+
+export const { useRegisterUserMutation } = authApi;
+export const { useLoginUserMutation } = loginApi;
+export const { useGetUserQuery } = getUserDetailsApi;

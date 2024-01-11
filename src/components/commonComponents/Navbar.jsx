@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown,Dropdown } from 'react-bootstrap';
 import { IoCarSportOutline } from "react-icons/io5";
 import "../../utils/navbar.css"
 import LogIn from '../forms/LogIn';
 import Registration from '../forms/Registration';
 import EnquiryForm from '../forms/EnquiryForm';
+import { useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux';
+import { setIsAuthenticated as setAuthStatus } from '../../features/authSlice';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import {otherImg} from '../../assets/constants/ourServiceImg'
 
 const MyNavbar = () => {
+  const authState = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const userAuthToken = sessionStorage.getItem('accessToken');
+  const userFullName = sessionStorage.getItem('userName');
+  const userRole = sessionStorage.getItem('userRole');
+  
+  if(authState ===false && userAuthToken!==''){
+    dispatch(setAuthStatus(true));
+  }
 
   const [showLogin, setShowLogin] = useState("none");
   const [showReg, setShowReg] = useState("none");
@@ -20,6 +36,14 @@ const MyNavbar = () => {
     setShowLogin("none")
   }
   
+  const handleLogOut =()=>{
+    sessionStorage.removeItem('accessToken');
+    sessionStorage.removeItem('userName');
+    sessionStorage.removeItem('userRole');
+    dispatch(setAuthStatus(false));
+  }
+
+
   return (
     <>
       <Navbar style={{backgroundColor:"#000000", color:"white", padding:"10px 10px", boxSizing:"borderBox"}} expand="lg" fixed="top">
@@ -55,8 +79,26 @@ const MyNavbar = () => {
               <NavDropdown.Item href="/offers" className='nav-dropdown-item'>Offers</NavDropdown.Item>
               <NavDropdown.Item href="/reviews" className='nav-dropdown-item'>Reviews</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link className='nav-links nav-login-link' style={{ fontSize: '1.5rem'}} onClick={() => handleLogInClick(true)}>Login</Nav.Link>
-            <Nav.Link  className='nav-links' onClick={() => handleRegClick(true)}>Register</Nav.Link>
+
+            {userAuthToken === null ?  
+              <div className='d-flex'>
+                <Nav.Link className='nav-links nav-login-link' style={{ fontSize: '1.5rem'}} onClick={() => handleLogInClick(true)}>Login</Nav.Link>
+                <Nav.Link  className='nav-links' onClick={() => handleRegClick(true)}>Register</Nav.Link>
+              </div>
+            : <div className='d-flex px-2'>
+                <div style={{width:'35px'}}><img className='w-100 m-auto' src={otherImg.maleProfile} alt="" /></div>
+                <Dropdown as={Nav.Item} align="end">
+                  <Dropdown.Toggle as={Nav.Link} id="dropdown-nav-link">
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu >
+                    <Dropdown.Item className='link-dark' href="/dashboard">Dashboard</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item className='link-dark' onClick={handleLogOut}>Log Out</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+            </div>
+          }
+            
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -72,6 +72,12 @@ import callImg from '../images/moreImages/call.svg'
 import mechanicImg from '../images/moreImages/mechanicImg.png'
 
 
+//Other Images
+import maleProfile from '../images/other/maleProfile.png'
+import femaleProfile from '../images/other/femaleProfile.png'
+
+
+
 
 export const serviceImages = {acAndServiceRepair,
     batteries, carInspection, carSpaAndCleaning, clutchAndBody, dentingAndPainting, detailingService, insuranceClaims,
@@ -106,4 +112,8 @@ export const downloadsImg = {
 
 export const moreImgs = {
     faqImg, officeImg, callImg, emailImg, mechanicImg
+}
+
+export const otherImg = {
+    maleProfile, femaleProfile,
 }

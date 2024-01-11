@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/commonComponents/Navbar'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/homeComponents/Home'
@@ -13,6 +14,8 @@ import Terms from './components/companyComponents/Terms';
 import Footer from './components/homeComponents/Footer'
 import { Provider } from 'react-redux'; // Ensure this import statement is present
 import store from './store';
+import CustomToast from './components/commonComponents/toasters/CustomToast';
+import CommonDashboard from './components/dashboardComponents/CommonDashboard';
  
 function App() {  
   return (
@@ -20,6 +23,7 @@ function App() {
       <Provider store={store}>
       <BrowserRouter>
         <AppNavbar />
+        <CustomToast />
         <Routes>
           <Route path='/not-found' Component={NotFound} />
           <Route path='/faq' Component={FAQ} />
@@ -28,6 +32,7 @@ function App() {
           <Route path='/privacy' Component={Privacy} />
           <Route path='/reviews' Component={Reviews} />
           <Route path='/terms' Component={Terms} />
+          <Route path='/dashboard' Component={CommonDashboard} />
           <Route path='/' exact Component={Home} />
           <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>

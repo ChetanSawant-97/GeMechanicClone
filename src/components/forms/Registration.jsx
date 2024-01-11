@@ -4,12 +4,14 @@ import Button from 'react-bootstrap/Button';
 import { IoCloseCircleSharp } from "react-icons/io5";
 import '../../utils/form.css'
 import { FaAsterisk } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useRegisterUserMutation } from '../../services/customerService';
+import {checkValidEmail,checkValidPassword} from '../../utils/utilities/common'
 
 
 const Registration = ({handleRegClick}) => {
+  const [registerUser, { data, error, isLoading }] = useRegisterUserMutation();
 
   const initialFormData = {
     firstName : '',
@@ -19,6 +21,17 @@ const Registration = ({handleRegClick}) => {
     password : '',
   }
 
+  const closeFormClearFormFields = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      password: '',
+    }));        
+    handleRegClick(false);
+  }
   const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) =>{
@@ -29,40 +42,43 @@ const Registration = ({handleRegClick}) => {
     }))
   }
 
-  const handleRegistration =()=>{
-    if(validateFormDate(formData)){
-        console.log("registerUser Executing")
-        registerUser(formData);
-    }else{
-        toast('Fill All the Required Details !');
+  const handleRegistration =async () => {
+    if (validateFormData(formData)) {
+      try {
+        const response = await registerUser(formData);
+        console.log("RESPONSE", response);
+          toast.success("Registration Successful !");
+          closeFormClearFormFields();
+    } catch (error) {
+        toast.error('Registration Failed');
+        console.error(error);
+      }
     }
-  }
+  };
 
-  const validateFormDate=(formData)=>{
-    console.log(formData);
-    if(FormData.password !== '' && formData.firstName!== '' && formData.lastName!== '' && formData.email!=='' && formData.password!==''){
-        return true;
+  const validateFormData = (formData) => {
+    let toastWarningMsg = '';
+    if(!checkValidEmail(formData.email)){
+      toast.warning("Provide Valid Email Address !");
+      return false;
+    }else if(!checkValidPassword(formData.password)){
+      toast.warning("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit");
+      return false;
+    }else if(formData.firstName===''){
+      toast.warning("First Name Cannot Be Empty !");
+      return false;
+    }else if(formData.lastName===''){
+      toast.warning("Last Name Cannot Be Empty !");
+      return false;
     }else{
-        return false;
+      return true;
     }
-  }
+  };
 
 
   return (
         <div className="reg-form">
-            <ToastContainer
-                style={{position:"absolute", top:"-38%", right:"-65%",color:"red"}}
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='colored'
-            />
-            <IoCloseCircleSharp className='pointerCursor' style={{position:"absolute", right:"3%", top:"3%", fontSize:"2em"}} onClick={() => handleRegClick(false)} />
+            <IoCloseCircleSharp className='pointerCursor' style={{position:"absolute", right:"3%", top:"3%", fontSize:"2em"}} onClick={closeFormClearFormFields} />
             <h2 className="py-2 text-center">Registration</h2>
             
             <div className="d-flex w-100 mb-3">
@@ -71,11 +87,11 @@ const Registration = ({handleRegClick}) => {
                 </div>
                 <div className='d-flex' style={{width:"75%"}}>
                     <div className="w-50 mx-2">
-                        <input type="text" style={{background:'black', color:'white'}} onChange={handleChange} name='firstName' className="form-control reg-focus" />
+                        <input type="text" style={{background:'black', color:'white'}} value={formData.firstName} onChange={handleChange} name='firstName' className="form-control reg-focus" />
                         <label for="formGroupEmail" style={{color:"#B6BBC4", paddingLeft:"2px"}} className="form-label">First Name</label>
                     </div>
                     <div className="w-50 mx-2">
-                        <input type="text" style={{background:'black', color:'white'}} onChange={handleChange} name='lastName' className="form-control reg-focus"  />
+                        <input type="text" style={{background:'black', color:'white'}} value={formData.lastName} onChange={handleChange} name='lastName' className="form-control reg-focus"  />
                         <label for="formGroupEmail" style={{color:"#B6BBC4", paddingLeft:"2px"}} className="form-label">Last Name</label>
                     </div>
                 </div>
@@ -86,7 +102,7 @@ const Registration = ({handleRegClick}) => {
                 </div>
                 <div className='d-flex' style={{width:"75%"}} >
                     <div className="w-100 mx-2">
-                        <input style={{background:'black', color:'white'}} type="email" onChange={handleChange} name='email' className="form-control reg-focus" placeholder="ex: example@exaple.com" />
+                        <input style={{background:'black', color:'white'}} type="email" value={formData.email} onChange={handleChange} name='email' className="form-control reg-focus" placeholder="ex: example@exaple.com" />
                         <label style={{color:"#B6BBC4", paddingLeft:"2px"}} htmlFor="formGroupPassword" className="form-label">example@exaple.com</label>
                     </div>
                 </div>
@@ -97,7 +113,7 @@ const Registration = ({handleRegClick}) => {
                 </div>
                 <div className='d-flex' style={{width:"75%"}} >
                     <div className="w-100 mx-2">
-                        <input style={{background:'black', color:'white'}} type="text" onChange={handleChange} name='phoneNumber' className="form-control reg-focus" placeholder="phone number" />
+                        <input style={{background:'black', color:'white'}} type="text" value={formData.phoneNumber} onChange={handleChange} name='phoneNumber' className="form-control reg-focus" placeholder="phone number" />
                     </div>
                 </div>
             </div>
@@ -107,7 +123,7 @@ const Registration = ({handleRegClick}) => {
                 </div>
                 <div className='d-flex' style={{width:"75%"}} >
                     <div className="w-100 mx-2">
-                        <input style={{background:'black', color:'white'}} type="password" onChange={handleChange} name='password' className="form-control reg-focus" placeholder="password" />
+                        <input style={{background:'black', color:'white'}} type="password" value={formData.password} onChange={handleChange} name='password' className="form-control reg-focus" placeholder="password" />
                     </div>
                 </div>
             </div>
