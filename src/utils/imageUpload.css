@@ -1,0 +1,48 @@
+/* ImageUpload.css */
+.image-upload-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #cccccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+  }
+  
+  .dropzone.active {
+    background-color: #eeeeee;
+  }
+  
+  .dropzone p {
+    font-size: 16px;
+    color: #888888;
+  }
+  
+  .selected-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Spacing between images */
+  }
+  
+  .uploaded-image {
+    width: calc(25% - 20px); /* Four images per row with 20px gap */
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+  
+  .uploaded-image:hover {
+    transform: scale(1.1); /* Enlarge image on hover */
+  }
+  

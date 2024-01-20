@@ -21,6 +21,7 @@ const CommonDashboard = () => {
     }
   }, [authState.isAuthenticated, navigate]);
 
+  console.log(userRole+ "USER ROLE FROM MAIN COMP");
   return (
     
     <div style={{marginTop:'78px'}}>

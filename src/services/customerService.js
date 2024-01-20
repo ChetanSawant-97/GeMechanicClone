@@ -53,7 +53,50 @@ export const getUserDetailsApi = createApi({
 });
 
 
+export const updateUserApi = createApi({
+    reducerPath : 'updateUserApi',
+    baseQuery : fetchBaseQuery({
+        baseUrl: 'http://localhost:8080/api/v1/user/',
+        headers: {
+            Authorization: ('Bearer ' + authToken), 
+        },
+    }),
+    endpoints : (builder) =>({
+        updateUser : builder.mutation({
+            query : (userObj) =>({
+                url:'updateProfile',
+                method:"POST",
+                body : userObj,
+            }),
+        }),
+        
+    }),
+});
+
+
+export const requestServiceApi = createApi({
+    reducerPath : 'requestServiceApi',
+    baseQuery : fetchBaseQuery({
+        baseUrl: 'http://localhost:8080/api/v1/customerServiceDet/',
+        headers: {
+            Authorization: ('Bearer ' + authToken), 
+        },
+    }),
+    endpoints : (builder) =>({
+        requestService : builder.mutation({
+            query : (serviceReqObj) =>({
+                url:'requestService',
+                method:"POST",
+                body : serviceReqObj,
+            }),
+        }),
+        
+    }),
+});
+
 
 export const { useRegisterUserMutation } = authApi;
 export const { useLoginUserMutation } = loginApi;
+export const { useUpdateUserMutation } = updateUserApi;
 export const { useGetUserQuery } = getUserDetailsApi;
+export const { useRequestServiceMutation } = requestServiceApi;

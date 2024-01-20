@@ -1,0 +1,23 @@
+.react-confirm-alert-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Remove overlay background */
+  }
+  
+.react-confirm-alert-body{
+    text-align:center;
+    font-size : 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-confirm-alert-button-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 28px;
+}
+
+.react-confirm-alert-button-group button{
+    padding: 8px 28px
+}

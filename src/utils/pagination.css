@@ -1,0 +1,78 @@
+/* Add this to your existing CSS file or create a new one */
+
+/* Style the outer container */
+ul[role="navigation"] {
+    display: inline-flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0px 10px;
+    border-radius:25px;
+    background-color: #eee; /* Background color of the strip */
+    height: 45px; /* Adjust the height of the parent as needed */
+  }
+  
+  /* Style individual list items */
+  ul[role="navigation"] > li {
+    margin: 0 5px;
+    width: 45px; /* Fixed width for each li item */
+    margin:0;
+    text-align:center;
+  }
+  
+  /* Style anchor tags inside list items */
+  ul[role="navigation"] a {
+    text-decoration: none;
+    padding: 8px 12px;
+    color: #333; 
+    width: 100%; 
+    font-size:1.2em;
+    display: block; 
+    transition: color 0.3s;
+  }
+  
+  /* Style the selected page */
+  ul[role="navigation"] .selected a {
+    background-color: #86c023;
+    color: #595959;
+  }
+  
+  /* Style hover effect for number buttons */
+  ul[role="navigation"] li:not(.prev):not(.next) a:hover {
+    background-color: #86c023;
+    color: #595959; 
+  }
+
+  
+  /* Style hover effect for number buttons */
+  ul[role="navigation"] li:not(.prev):not(.next) a {
+    color: #595959 !important; 
+  }
+  
+  
+  ul[role="navigation"] .previous ,
+  ul[role="navigation"] .next  {
+    width:60px;
+  }
+  
+
+
+  /* Style prev and next buttons */
+  ul[role="navigation"] .previous a,
+  ul[role="navigation"] .next a {
+    background-color: #eee !important; 
+    color:#595959 !important;
+  }
+
+  ul[role="navigation"] .previous a{
+    border-radius: 25px 0 0 25px; 
+  }
+  ul[role="navigation"] .next a {
+    border-radius: 0px 25px 25px 0px; 
+  }
+
+  /* Style color for prev and next buttons on hover */
+  ul[role="navigation"] .previous a:hover,
+  ul[role="navigation"] .next a:hover {
+    color: #86c023 !important; 
+  }
+  

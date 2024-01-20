@@ -10,7 +10,7 @@ import { GiMechanicGarage } from "react-icons/gi";
 import { IoIosCar } from "react-icons/io";
 import { RxDashboard } from "react-icons/rx";
 import { FaHistory } from "react-icons/fa";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';6
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useGetUserQuery } from '../../../services/customerService';
 
@@ -19,16 +19,11 @@ const CustomerDashboard = () => {
   const username = sessionStorage.getItem('userName');
   const { data, error, isLoading } = useGetUserQuery(username);
 
-  console.log(data);
-  console.log(error);
-
-
   useEffect(() => {
     const tooltips = document.querySelectorAll('[data-toggle="tooltip"]');
     tooltips.forEach((tooltip) => {
       new window.bootstrap.Tooltip(tooltip);
     });
-  
   }, []);
 
   const [selectedTab, useSelectedTab] = useState("DASHBOARD");
@@ -45,7 +40,7 @@ const CustomerDashboard = () => {
       </div>
       <div className='h-100' style={{width:'96%'}}>
           {selectedTab === 'DASHBOARD' && <Dashboard /> }
-          {selectedTab === 'PROFILE' && <CustomerProfile /> }
+          {selectedTab === 'PROFILE' && <CustomerProfile profileDetails={data} /> }
           {selectedTab === 'SERVICES' && <OnGoingServices/>}
           {selectedTab === 'VEHICLE' && <VehicleDetails/>}
           {selectedTab === 'HISTORY' && <TransactionHistory/>}

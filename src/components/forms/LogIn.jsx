@@ -42,6 +42,9 @@ const LogIn = ({handleLogInClick}) => {
     sessionStorage.setItem('userFullName', data.userFullName);
     sessionStorage.setItem('userName', data.userName);
     sessionStorage.setItem('userRole', data.userRole);
+
+    console.log(JSON.stringify(data) + " FROM LOGIN FORM COMP");
+
     setEmail('');
     setPassword('');
     handleLogInClick(false);

@@ -1,0 +1,12 @@
+/* MyApp.css */
+
+.react-datetime-picker__wrapper {
+   
+    padding: 5px; /* Add padding for better visibility */
+    border-radius : 5px;
+    box-sizing:border-box;
+  }
+  
+  .react-datetime-picker__inputGroup__input:invalid {
+    background: #F3EEEA;
+}
