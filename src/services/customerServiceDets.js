@@ -24,4 +24,22 @@ export const requestServiceApi = createApi({
 });
 
 
+
+export const getRequestedServices = createApi({
+    reducerPath: 'getRequestedServices',
+    baseQuery: fetchBaseQuery({ 
+        baseUrl: 'http://localhost:8080/api/v1/customerServiceDet/',
+        headers: {
+            Authorization: ('Bearer ' + authToken), 
+        },
+    }),
+    endpoints: (builder) => ({
+        getReqServices: builder.query({
+        query: () => "getServices",
+        }),
+    }),
+});
+
+
 export const { useRequestServiceMutation } = requestServiceApi;
+export const { useGetReqServicesQuery } = getRequestedServices;

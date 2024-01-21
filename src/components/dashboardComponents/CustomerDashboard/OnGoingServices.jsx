@@ -1,15 +1,21 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RequestServiceForm from '../../forms/RequestServiceForm';
 import { toast } from 'react-toastify';
-
+import { useGetReqServicesQuery } from '../../../services/customerServiceDets';
 
 const OnGoingServices = () => {
+  const { data, error, isLoading } = useGetReqServicesQuery();
   const [modalShow, setModalShow] = useState(false);
-
+  const [requestedServiceList, setRequestedServiceList] = useState([]);
   const showSuccessMsg=()=>{
     toast.success("Service Requested !");
-  }
+  } 
+  console.log("requestedServ:", data);
+  console.log("error:", error);
+  console.log("isLoading:", isLoading);
+  
+  console.log(data);
   
   return (
     <div>

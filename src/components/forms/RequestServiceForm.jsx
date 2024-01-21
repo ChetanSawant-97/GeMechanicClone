@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useGetServiceDetQuery } from '../../services/serviceMaster';
 import { useState,useEffect } from 'react';
@@ -7,10 +6,10 @@ import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
-import '../../utils/datePicker.css'
+import '../../utils/datePicker.css';
 import ImageUploader from '../commonComponents/ImageUploader';
 import {readFileAsDataURL} from '../../utils/utilities/common';
-import { useRequestServiceMutation,requestServiceApi } from '../../services/customerServiceDets';
+import { useRequestServiceMutation } from '../../services/customerServiceDets';
 import { toast } from 'react-toastify';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -19,9 +18,8 @@ const animatedComponents = makeAnimated();
 
 
 const RequestServiceForm = (props) => {
-    console.log(props);
     const { data, error, isLoading } = useGetServiceDetQuery();
-    const [requestService, { resuestSerData, ReqServError, reqServIsLoading }] = useRequestServiceMutation();
+    const [requestService, { requestServData, ReqServError, reqServIsLoading }] = useRequestServiceMutation();
     const [serviceList, setServiceList] = useState([]);
     const [requestFormData, setRequestFormData] = useState({});
     const [selectedImages, setSelectedImages] = useState([]);
@@ -53,6 +51,7 @@ const RequestServiceForm = (props) => {
       setSelectedServices([]);
       props.onHide();
       props.onSuccess();
+      onChange({});
     }
 
     const onServiceSelect = (selected) => {
@@ -76,7 +75,6 @@ const RequestServiceForm = (props) => {
     }
 
     const onSubmitRequest =async()=>{
-      console.log(requestServiceApi);
       const serviceDescImages = await Promise.all(
         selectedImages.map(async (file) => {
           const base64String = await readFileAsDataURL(file);
@@ -89,13 +87,13 @@ const RequestServiceForm = (props) => {
     
       const updatedFormData = {
         ...requestFormData,
-        selectedServices : [selectedServices[0]],
-        prickupDateAndTime : pickupDate,
+        selectedServices : selectedServices,
+        pickupDateAndTime : pickupDate,
         serviceDescImages : serviceDescImages,
       }
+      console.log(updatedFormData);
       try {
-        const response = await requestService(requestFormData);
-        console.log(response);
+        const response = await requestService(updatedFormData);
       } catch (error) {
         toast.error('Requesting Service Failed');
       }

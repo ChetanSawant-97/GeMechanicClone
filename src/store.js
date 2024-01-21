@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authApi,loginApi, getUserDetailsApi,updateUserApi} from './services/customerService';
 import authReducers from './features/authSlice'
 import { serviceDetApi,addOrUpdateService,deleteServiceApi } from './services/serviceMaster';
-import { requestServiceApi } from './services/customerServiceDets';
+import { requestServiceApi,getRequestedServices } from './services/customerServiceDets';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +14,7 @@ const store = configureStore({
     [addOrUpdateService.reducerPath] : addOrUpdateService.reducer,
     [deleteServiceApi.reducerPath] : deleteServiceApi.reducer,
     [requestServiceApi.reducerPath] : requestServiceApi.reducer,
+    [getRequestedServices.reducerPath] : getRequestedServices.reducer,
     auth : authReducers,
   },
   middleware: (getDefaultMiddleware) =>
@@ -26,6 +27,7 @@ const store = configureStore({
     addOrUpdateService.middleware,
     deleteServiceApi.middleware,
     requestServiceApi.middleware,
+    getRequestedServices.middleware,
     ),  
 });
 
