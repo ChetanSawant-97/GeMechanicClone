@@ -51,7 +51,7 @@ const RequestServiceForm = (props) => {
       setSelectedServices([]);
       props.onHide();
       props.onSuccess();
-      onChange({});
+      onChange(new Date());
     }
 
     const onServiceSelect = (selected) => {
@@ -91,9 +91,9 @@ const RequestServiceForm = (props) => {
         pickupDateAndTime : pickupDate,
         serviceDescImages : serviceDescImages,
       }
-      console.log(updatedFormData);
       try {
         const response = await requestService(updatedFormData);
+        console.log(response);
       } catch (error) {
         toast.error('Requesting Service Failed');
       }

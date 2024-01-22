@@ -286,3 +286,11 @@ export const services = [
       ans : "Not at all.From the booking to delivery, our priority at GoMechanic keeps You and Your Car Service first.We will send you the bill once your car is serviced and inspected by our professionals.We offer flexible payment options for your ease. You can still prepay if you choose to."
     },
   ]
+
+  export const serviceStatus ={
+    requestedService : "REQUESTED",
+    onGoingService : "ONGOING",
+    delayedService : "DELAYED",
+    onHoldService : "ONHOLD",
+    completedService : "COMPLETED"
+  }

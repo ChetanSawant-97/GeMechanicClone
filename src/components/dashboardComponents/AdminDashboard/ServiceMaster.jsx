@@ -42,12 +42,13 @@ const ServiceMaster = ({serviceMasterList, setServiceList}) => {
       serviceName: '',
       description: '',
       serviceRate: '',
+      expectedTime:'',
     }
 
     const [formFields, setFormFields] = useState(initialFormDate);
                                         
     const handleDeleteService =(serviceMasterId)=>{
-      console.log(serviceMasterId);
+      console.log(serviceMasterId);  
       confirmAlert({
         message: 'Are you sure you want to delete this ?',
         buttons: [
@@ -99,9 +100,16 @@ const ServiceMaster = ({serviceMasterList, setServiceList}) => {
       <h1 className='py-3' style={{color:"#5F0F40", fontWeight:"600"}}>Service Master</h1>
       <div className="d-flex justify-content-between w-100 p-3 pb-4" style={{ borderBottom:"1px solid #5F0F40", borderRadius:"15px", backgroundColor:"#F5F5F5"}}>
         <input type="hidden" class="form-control" id="serviceMasterId" value={formFields.serviceMasterId} required />
-        <div class="col-md-4 p-1">
+        <div class="col-md-3 p-1">
             <label for="validationCustom01" class="form-label">Service Name</label>
             <input type="text" class="form-control" id="serviceName" value={formFields.serviceName} required onChange={handleOnChange} />
+        </div>
+        <div class="col-md-1 p-1">
+            <label for="validationCustom01" class="form-label">Expected Time</label>
+            <div class='d-flex align-items-center'>
+                <input type="text" class="form-control w-75" id="expectedTime" maxLength="2" value={formFields.expectedTime} required onChange={handleOnChange}/>
+                <p className='align-self-center m-2'>Hrs</p>
+            </div>
         </div>
         <div class="col-lg-1 p-1 mx-1">
             <label for="validationCustom02" class="form-label">Price</label>
@@ -110,7 +118,7 @@ const ServiceMaster = ({serviceMasterList, setServiceList}) => {
                 <FaIndianRupeeSign className='align-self-center m-2'></FaIndianRupeeSign>
             </div>
         </div>
-        <div class="col-lg-5 p-1">
+        <div class="col-lg-4 p-1">
             <label for="validationCustom02" class="form-label">Description</label>
             <input type="text" class="form-control" id="description" value={formFields.description} required onChange={handleOnChange} />
         </div>
@@ -125,7 +133,8 @@ const ServiceMaster = ({serviceMasterList, setServiceList}) => {
         <thead>
           <tr>
             <th scope="col" style={{width:"4%"}} >Sr No</th>
-            <th scope="col" style={{width:"30%"}}>Service Name</th>
+            <th scope="col" style={{width:"23%"}}>Service Name</th>
+            <th scope="col" style={{width:"8%"}}>Expected Time</th>
             <th scope="col" style={{width:"8%"}}>Price</th>
             <th scope="col" style={{width:"45%"}}>Description</th>
             <th scope="col" >Actions</th>
@@ -135,9 +144,10 @@ const ServiceMaster = ({serviceMasterList, setServiceList}) => {
           {currentServiceList.map((service, index) => (
             <tr key={index}>
               <td scope="row" style={{ width: '4%' }}>{index + 1}</td>
-              <td style={{ width: '30%' }}>{service.serviceName}</td>
-              <td style={{ width: '8%' }}>{service.serviceRate} <LiaRupeeSignSolid /> </td>
-              <td style={{ width: '45%' }}>{service.description}</td>
+              <td style={{ width: '23%' }}>{service.serviceName}</td>
+              <td style={{ width: '11%' }}>{service.expectedTime}</td>
+              <td style={{ width: '10%' }}>{service.serviceRate} <LiaRupeeSignSolid /> </td>
+              <td style={{ width: '40%' }}>{service.description}</td>
               <td className='d-flex justify-content-around'>
                 <button className='btn' style={{ backgroundColor: '#424769', color: 'white' }} onClick={()=>handleEditService(service.serviceId)}>
                    <span style={{ marginLeft: '5px' }}><MdEdit /></span>
