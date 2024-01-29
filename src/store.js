@@ -3,7 +3,7 @@ import { authApi,loginApi, getUserDetailsApi,updateUserApi} from './services/cus
 import authReducers from './features/authSlice'
 import { serviceDetApi,addOrUpdateService,deleteServiceApi } from './services/serviceMaster';
 import { requestServiceApi,getRequestedServices } from './services/customerServiceDets';
-
+import { getAllServices } from './services/adminService';
 const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
@@ -15,6 +15,7 @@ const store = configureStore({
     [deleteServiceApi.reducerPath] : deleteServiceApi.reducer,
     [requestServiceApi.reducerPath] : requestServiceApi.reducer,
     [getRequestedServices.reducerPath] : getRequestedServices.reducer,
+    [getAllServices.reducerPath] : getAllServices.reducer,
     auth : authReducers,
   },
   middleware: (getDefaultMiddleware) =>
@@ -28,6 +29,7 @@ const store = configureStore({
     deleteServiceApi.middleware,
     requestServiceApi.middleware,
     getRequestedServices.middleware,
+    getAllServices.middleware,
     ),  
 });
 

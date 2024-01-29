@@ -77,6 +77,9 @@ import maleProfile from '../images/other/maleProfile.png'
 import femaleProfile from '../images/other/femaleProfile.png'
 
 
+import companyHeader from '../images/companyImages/companyHeader.png'
+import rupee from '../images/companyImages/rupee.png'
+
 
 
 export const serviceImages = {acAndServiceRepair,
@@ -116,4 +119,8 @@ export const moreImgs = {
 
 export const otherImg = {
     maleProfile, femaleProfile,
+}
+
+export const CompanyImg = {
+    companyHeader,rupee
 }

@@ -16,6 +16,7 @@ import { Provider } from 'react-redux'; // Ensure this import statement is prese
 import store from './store';
 import CustomToast from './components/commonComponents/toasters/CustomToast';
 import CommonDashboard from './components/dashboardComponents/CommonDashboard';
+import DemoComponent from './components/DemoComponent';
 
 function App() {  
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='/reviews' Component={Reviews} />
           <Route path='/terms' Component={Terms} />
           <Route path='/dashboard' Component={CommonDashboard} />
+          <Route path='/demo' Component={DemoComponent} />
           <Route path='/' exact Component={Home} />
           <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>

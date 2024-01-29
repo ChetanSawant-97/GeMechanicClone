@@ -1,0 +1,25 @@
+.section-title{
+    font-size:1.2em;
+}
+
+.customer-info-field-name{
+
+}
+
+.section-title{
+    margin-bottom: 5px;
+    /* border-bottom: 1px solid #7077A1; */
+    display: inline-block;
+    font-weight: 600;
+    position: absolute;
+    top: -18px;
+    left: 8px;
+    background-color: white;
+    padding: 0px 8px 0px 8px;
+}
+
+.section-body{
+    padding:5px;
+    position:relative;
+    border:1px solid #7077A1;
+}

@@ -41,7 +41,7 @@ const OnGoingServices = () => {
       <div className='px-4 mt-4'>
         <table class="table">
           <thead>
-            <tr>
+            <tr >
               <th scope="col" className='col-lg-4'><span style={{paddingLeft:"25px"}}>Service Request</span></th>
               <th scope="col" className='col-lg-2'>Request Date</th>
               <th scope="col" className='col-lg-1'>Request Status</th>
@@ -59,7 +59,6 @@ const OnGoingServices = () => {
                   <td>@mdo</td>
                 </tr>
             ))}
-            
           </tbody>
         </table>
       </div>

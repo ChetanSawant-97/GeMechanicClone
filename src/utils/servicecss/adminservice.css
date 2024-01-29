@@ -24,3 +24,102 @@
     box-shadow:none !important;
     border : 1px solid #DCF2F1 !important;
 }
+
+
+.date-field{
+    border : 1px solid #BFCFE7;
+    padding : 5px 5px;
+    border-radius:5px;
+    width:calc(100% - 95px);
+}
+
+
+.calendar-icon{
+    position:absolute;
+    color : #A9A9A9;
+    right: 14px;
+    top: 9px;
+}
+.calendar-icon:hover{
+    cursor: pointer;
+}
+
+.rdrDateRangePickerWrapper{
+    width:100%;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-row {
+    display: flex;
+    border-top: 1px solid #dee2e6;
+    flex-direction:column;
+  }
+  
+  .table-header-row{
+    display: flex;
+    font-weight: bold;
+    background: #EEEDEB;
+  }
+  .table-header-row div{
+    padding:10px;
+    box-sizing:border-box;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .table-row div{
+    padding:5px;
+    box-sizing:border-box;
+  }
+
+
+  .rotate-90{
+    transform: rotate(90deg);
+  }
+
+  .dropdown-icon{
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-icon:hover{
+    pointer:cursor;
+  }
+
+  p{margin-bottom:0px;}
+
+  .print-and-delete-icon{
+
+  }
+
+  .table-body{
+    max-height:60vh;
+    overflow-y:auto;
+  }
+
+  .table-body::-webkit-scrollbar {
+      width: 8px; 
+      color: black;
+  }
+
+  .table-body::-webkit-scrollbar-thumb {
+    background-color: #647D87;
+    border-radius:8px;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.table-body::-webkit-scrollbar-track {
+    background-color: #eee; /* Set the color of the scrollbar track */
+}
+
+.text-ellipsis{
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}

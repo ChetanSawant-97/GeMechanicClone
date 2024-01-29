@@ -21,3 +21,8 @@
 .react-confirm-alert-button-group button{
     padding: 8px 28px
 }
+
+.pointerCursor:hover{
+    cursor: pointer;
+  }
+  

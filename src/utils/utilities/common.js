@@ -83,3 +83,8 @@ export const readFileAsDataURL = (file) => {
     reader.readAsDataURL(file);
   });
 };
+
+
+export const formatDateString = (date) => {
+  return date.toLocaleDateString('en-GB'); 
+};
